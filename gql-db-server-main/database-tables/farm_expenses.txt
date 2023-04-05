@@ -1,0 +1,126 @@
+id
+-
+uuid, primary key, unique, default: gen_random_uuid()
+name
+-
+text
+address
+-
+text
+date_began
+-
+timestamp with time zone
+date_ended
+-
+timestamp with time zone
+type
+-
+text
+ownership_percent
+-
+double precision
+gst_number
+-
+integer
+prepare_gst
+-
+boolean
+income
+-
+double precision
+opening_inventory
+-
+double precision
+closing_inventory
+-
+double precision
+container_and_twine
+-
+double precision
+fertilizers_and_lime
+-
+double precision
+pesticides
+-
+double precision
+seeds_and_plants
+-
+double precision
+feed_supplements_straw_and_bedding
+-
+double precision
+livestock_purchased
+-
+double precision
+veterinary_medicine_breeding_fees
+-
+double precision
+machinery_repairs_licenses_insurance
+-
+double precision
+machinery_fuel_and_oil
+-
+double precision
+building_and_fence_repairs
+-
+double precision
+clearing_leveling_draining_land
+-
+double precision
+crop_insurance
+-
+double precision
+contract_work_and_machinery_rental
+-
+double precision
+electricity
+-
+double precision
+heating_fuel
+-
+double precision
+insurance_program_overcapture_recapture
+-
+double precision
+other_insurance
+-
+double precision
+interest
+-
+double precision
+office_in_home_expenses_id
+-
+uuid, nullable
+legal_and_accounting_fees
+-
+double precision
+property_taxes
+-
+double precision
+rent
+-
+double precision
+salaries_wages_benefits_employer_contributions
+-
+double precision
+motor_vehicle_expenses_id
+-
+uuid, nullable
+small_tools
+-
+double precision
+other_expenses
+-
+double precision
+capital_purchases_improvements_disposals
+-
+double precision
+business_use_of_home_expenses
+-
+double precision
+additional_info_or_comments
+-
+text, nullable
+tax_records_id
+-
+uuid

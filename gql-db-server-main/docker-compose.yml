@@ -1,0 +1,77 @@
+version: "3.6"
+services:
+  postgres:
+    image: postgres:${POSTGRES_VERSION}
+    restart: always
+    volumes:
+      - ./init.sh:/docker-entrypoint-initdb.d/init.sh
+      - ./backup.sql:/restore/backup.sql
+      - ${VOLUME}:/var/lib/postgresql/data
+    networks:
+      - ${NETWORK}
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+
+  graphql-engine:
+    image: hasura/graphql-engine:${HASURA_VERSION}
+    networks:
+      - ${NETWORK}
+    ports:
+      - "${HASURA_HOST_PORT}:8080"
+    depends_on:
+      - "postgres"
+    restart: always
+    environment:
+      ## postgres database to store POSTGRES data and Hasura metadata
+      HASURA_GRAPHQL_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+
+      ## enable the console served by server
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+
+      ## enable debugging mode. It is recommended to disable this in production
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+
+      ## uncomment next line to set an admin secret
+      HASURA_GRAPHQL_ADMIN_SECRET: ${ADMIN_SECRET_KEY}
+
+      # JSON Web Token Config
+      HASURA_GRAPHQL_JWT_SECRET: '{ "type": "${HASURA_JWT_ALGO}", "key": "${HASURA_JWT_SECRET}" }'
+      
+      # Unauthenticated/Public Access
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: ${HASURA_UNAUTHORIZED_ROLE}
+
+      # CSV of list of domains, incuding scheme (http/https) and port, to allow for CORS. Wildcard domains are allowed. (See Configure CORS)
+      # HASURA_GRAPHQL_CORS_DOMAIN: ["<domain here>"]
+
+      # Disable CORS. Do not send any CORS headers on any request.
+      # HASURA_GRAPHQL_DISABLE_CORS: true
+
+      # Number of stripes (distinct sub-pools) to maintain with Postgres (default: 1). New connections will be taken from a particular stripe pseudo-randomly.
+      # HASURA_GRAPHQL_PG_STRIPES: 1
+
+      # Maximum number of Postgres connections that can be opened per stripe (default: 50). When the maximum is reached we will block until a new connection becomes available, even if there is capacity in other stripes.
+      # HASURA_GRAPHQL_PG_CONNECTIONS: 50
+
+      # Each connection's idle time before it is closed (default: 180 sec)
+      # HASURA_GRAPHQL_PG_TIMEOUT: 180
+
+      # Time from connection creation after which the connection should be destroyed and a new one created. A value of 0 indicates we should never destroy an active connection. If 0 is passed, memory from large query results may not be reclaimed. (default: 600 sec)
+      # HASURA_GRAPHQL_PG_CONN_LIFETIME: 600
+
+      # Transaction isolation. read-committed / repeatable-read / serializable (default: read-committed)
+      # HASURA_GRAPHQL_TX_ISOLATION: read-committed
+
+      # Comma separated list of APIs (options: metadata, graphql, pgdump, config) to be enabled. (default: metadata,graphql,pgdump,config)
+      # HASURA_GRAPHQL_ENABLED_APIS: metadata, graphql
+
+      # ACTION HANDLER URL
+      HASURA_ACTION_BASE_URL: ${HASURA_ACTION_URL}
+
+volumes:
+  db_data:
+
+networks: 
+  net:

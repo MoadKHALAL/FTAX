@@ -1,0 +1,151 @@
+id
+-
+uuid, primary key, unique, default: gen_random_uuid()
+
+name
+-
+text, nullable
+
+address
+-
+text, nullable
+
+date_began
+-
+date, nullable
+
+date_ended
+-
+date, nullable
+
+product_or_service
+-
+text, nullable
+
+ownership_percent
+-
+double precision, nullable
+
+gst_number
+-
+text, nullable
+
+prepare_gst
+-
+boolean, nullable
+
+opening_inventory
+-
+text, nullable
+
+closing_inventory
+-
+text, nullable
+
+sales_commission_fees
+-
+text, nullable
+
+purchases
+-
+text, nullable
+
+subcontracts
+-
+text, nullable
+
+advertising
+-
+text, nullable
+
+business_tax_licenses_dues
+-
+text, nullable
+
+delivery_and_freight
+-
+text, nullable
+
+fuel_costs
+-
+text, nullable
+
+insurance
+-
+text, nullable
+
+interest_and_bank_charges
+-
+text, nullable
+
+maintenance_and_repairs
+-
+text, nullable
+
+meals_and_entertainment
+-
+text, nullable
+
+motor_vehicle_expenses_id
+-
+uuid, nullable
+
+office_expenses
+-
+text, nullable
+
+supplies_and_small_tools
+-
+text, nullable
+
+professional_fees
+-
+text, nullable
+
+property_taxes
+-
+text, nullable
+
+rent
+-
+text, nullable
+
+salaries_wages_benefits_employer_contributions
+-
+text, nullable
+
+travel
+-
+text, nullable
+
+telephone_and_utilities
+-
+text, nullable
+
+training
+-
+text, nullable
+
+other_expenses
+-
+text, nullable
+
+capital_purchases_improvements_disposals
+-
+text, nullable
+
+business_use_of_home_expenses_id
+-
+uuid, nullable
+
+apprenticeship_job_creation
+-
+text, nullable
+
+additional_info_or_comments
+-
+text, nullable
+
+tax_records_id
+-
+uuid, unique

@@ -1,0 +1,45 @@
+id
+-
+uuid, primary key, unique, default: gen_random_uuid()
+date_began
+-
+timestamp with time zone
+date_end
+-
+timestamp with time zone
+motor_vehicle_expenses_id
+-
+uuid, unique, nullable
+travelling_expenses
+-
+double precision
+parking
+-
+double precision
+supplies
+-
+double precision
+office_in_home_expenses_id
+-
+uuid, unique, nullable
+other_expenses
+-
+double precision
+advertising_and_promotion_expenses
+-
+double precision
+entertainment_for_clients_expenses
+-
+double precision
+commissioned_other_expenses
+-
+double precision
+additional_info_or_comments
+-
+text
+legal_fees
+-
+double precision
+tax_records_id
+-
+uuid

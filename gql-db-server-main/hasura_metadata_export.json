@@ -1,0 +1,927 @@
+{
+  "resource_version": 26,
+  "metadata": {
+    "version": 3,
+    "sources": [
+      {
+        "name": "ftax-postgres-db",
+        "kind": "postgres",
+        "tables": [
+          {
+            "table": {
+              "schema": "public",
+              "name": "business_expenses"
+            },
+            "object_relationships": [
+              {
+                "name": "tax_record",
+                "using": {
+                  "foreign_key_constraint_on": "tax_records_id"
+                }
+              }
+            ],
+            "insert_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "check": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  },
+                  "columns": [
+                    "formData"
+                  ],
+                  "backend_only": false
+                }
+              }
+            ],
+            "select_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData",
+                    "id",
+                    "tax_records_id"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "update_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "_and": [
+                        {
+                          "user": {
+                            "id": {
+                              "_eq": "X-Hasura-User-Id"
+                            }
+                          }
+                        },
+                        {
+                          "_not": {
+                            "submitted": {
+                              "_eq": true
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "check": null
+                }
+              }
+            ]
+          },
+          {
+            "table": {
+              "schema": "public",
+              "name": "employment_expenses"
+            },
+            "object_relationships": [
+              {
+                "name": "tax_record",
+                "using": {
+                  "foreign_key_constraint_on": "tax_records_id"
+                }
+              }
+            ],
+            "insert_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "check": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  },
+                  "columns": [
+                    "formData"
+                  ],
+                  "backend_only": false
+                }
+              }
+            ],
+            "select_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData",
+                    "id",
+                    "tax_records_id"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "update_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "_and": [
+                        {
+                          "user": {
+                            "id": {
+                              "_eq": "X-Hasura-User-Id"
+                            }
+                          }
+                        },
+                        {
+                          "_not": {
+                            "submitted": {
+                              "_eq": true
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "check": null
+                }
+              }
+            ]
+          },
+          {
+            "table": {
+              "schema": "public",
+              "name": "motor_vehicle_expenses"
+            },
+            "object_relationships": [
+              {
+                "name": "tax_record",
+                "using": {
+                  "foreign_key_constraint_on": "tax_records_id"
+                }
+              }
+            ],
+            "insert_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "check": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  },
+                  "columns": [
+                    "formData"
+                  ],
+                  "backend_only": false
+                }
+              }
+            ],
+            "select_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData",
+                    "id",
+                    "tax_records_id"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "update_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "_and": [
+                        {
+                          "user": {
+                            "id": {
+                              "_eq": "X-Hasura-User-Id"
+                            }
+                          }
+                        },
+                        {
+                          "_not": {
+                            "submitted": {
+                              "_eq": true
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "check": null
+                }
+              }
+            ]
+          },
+          {
+            "table": {
+              "schema": "public",
+              "name": "moving_expenses"
+            },
+            "object_relationships": [
+              {
+                "name": "tax_record",
+                "using": {
+                  "foreign_key_constraint_on": "tax_records_id"
+                }
+              }
+            ],
+            "insert_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "check": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  },
+                  "columns": [
+                    "formData"
+                  ],
+                  "backend_only": false
+                }
+              }
+            ],
+            "select_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData",
+                    "id",
+                    "tax_records_id"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "update_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "_and": [
+                        {
+                          "user": {
+                            "id": {
+                              "_eq": "X-Hasura-User-Id"
+                            }
+                          }
+                        },
+                        {
+                          "_not": {
+                            "submitted": {
+                              "_eq": true
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "check": null
+                }
+              }
+            ]
+          },
+          {
+            "table": {
+              "schema": "public",
+              "name": "personal_information"
+            },
+            "object_relationships": [
+              {
+                "name": "user",
+                "using": {
+                  "foreign_key_constraint_on": "user_id"
+                }
+              }
+            ],
+            "select_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "address",
+                    "city",
+                    "country",
+                    "date_of_birth",
+                    "first_name",
+                    "gender",
+                    "id",
+                    "last_name",
+                    "postal_code",
+                    "province_or_territory",
+                    "social_insurrance_number",
+                    "telephone",
+                    "user_id"
+                  ],
+                  "filter": {
+                    "user_id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  }
+                }
+              }
+            ],
+            "update_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "address",
+                    "city",
+                    "first_name",
+                    "gender",
+                    "last_name",
+                    "postal_code",
+                    "province_or_territory",
+                    "telephone"
+                  ],
+                  "filter": {
+                    "user_id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  },
+                  "check": null
+                }
+              }
+            ]
+          },
+          {
+            "table": {
+              "schema": "public",
+              "name": "rental_expenses"
+            },
+            "object_relationships": [
+              {
+                "name": "tax_record",
+                "using": {
+                  "foreign_key_constraint_on": "tax_records_id"
+                }
+              }
+            ],
+            "insert_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "check": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  },
+                  "columns": [
+                    "formData"
+                  ],
+                  "backend_only": false
+                }
+              }
+            ],
+            "select_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData",
+                    "id",
+                    "tax_records_id"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "user": {
+                        "id": {
+                          "_eq": "X-Hasura-User-Id"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "update_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "formData"
+                  ],
+                  "filter": {
+                    "tax_record": {
+                      "_and": [
+                        {
+                          "user": {
+                            "id": {
+                              "_eq": "X-Hasura-User-Id"
+                            }
+                          }
+                        },
+                        {
+                          "_not": {
+                            "submitted": {
+                              "_eq": true
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "check": null
+                }
+              }
+            ]
+          },
+          {
+            "table": {
+              "schema": "public",
+              "name": "tax_records"
+            },
+            "object_relationships": [
+              {
+                "name": "business_expenses",
+                "using": {
+                  "foreign_key_constraint_on": {
+                    "column": "tax_records_id",
+                    "table": {
+                      "schema": "public",
+                      "name": "business_expenses"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "employment_expenses",
+                "using": {
+                  "foreign_key_constraint_on": {
+                    "column": "tax_records_id",
+                    "table": {
+                      "schema": "public",
+                      "name": "employment_expenses"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "motor_vehicle_expenses",
+                "using": {
+                  "foreign_key_constraint_on": {
+                    "column": "tax_records_id",
+                    "table": {
+                      "schema": "public",
+                      "name": "motor_vehicle_expenses"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "moving_expenses",
+                "using": {
+                  "foreign_key_constraint_on": {
+                    "column": "tax_records_id",
+                    "table": {
+                      "schema": "public",
+                      "name": "moving_expenses"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "rental_expenses",
+                "using": {
+                  "foreign_key_constraint_on": {
+                    "column": "tax_records_id",
+                    "table": {
+                      "schema": "public",
+                      "name": "rental_expenses"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "user",
+                "using": {
+                  "foreign_key_constraint_on": "user_id"
+                }
+              }
+            ],
+            "insert_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "check": {
+                    "user": {
+                      "id": {
+                        "_eq": "X-Hasura-User-Id"
+                      }
+                    }
+                  },
+                  "columns": [
+                    "has_business_expenses",
+                    "has_employment_expenses",
+                    "has_motor_vehicle_expenses",
+                    "has_moving_expenses",
+                    "has_rental_expenses",
+                    "submitted",
+                    "user_id",
+                    "year"
+                  ],
+                  "backend_only": false
+                }
+              }
+            ],
+            "select_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "has_business_expenses",
+                    "has_employment_expenses",
+                    "has_motor_vehicle_expenses",
+                    "has_moving_expenses",
+                    "has_rental_expenses",
+                    "id",
+                    "status",
+                    "submitted",
+                    "user_id",
+                    "year"
+                  ],
+                  "filter": {
+                    "user": {
+                      "id": {
+                        "_eq": "X-Hasura-User-Id"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "update_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "has_business_expenses",
+                    "has_employment_expenses",
+                    "has_motor_vehicle_expenses",
+                    "has_moving_expenses",
+                    "has_rental_expenses",
+                    "submitted"
+                  ],
+                  "filter": {
+                    "user": {
+                      "id": {
+                        "_eq": "X-Hasura-User-Id"
+                      }
+                    }
+                  },
+                  "check": null
+                }
+              }
+            ]
+          },
+          {
+            "table": {
+              "schema": "public",
+              "name": "users"
+            },
+            "object_relationships": [
+              {
+                "name": "personal_information",
+                "using": {
+                  "foreign_key_constraint_on": {
+                    "column": "user_id",
+                    "table": {
+                      "schema": "public",
+                      "name": "personal_information"
+                    }
+                  }
+                }
+              }
+            ],
+            "array_relationships": [
+              {
+                "name": "tax_records",
+                "using": {
+                  "foreign_key_constraint_on": {
+                    "column": "user_id",
+                    "table": {
+                      "schema": "public",
+                      "name": "tax_records"
+                    }
+                  }
+                }
+              }
+            ],
+            "select_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "password_hash",
+                    "created_at",
+                    "updated_at",
+                    "id"
+                  ],
+                  "filter": {
+                    "id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  }
+                }
+              }
+            ],
+            "update_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "password_hash"
+                  ],
+                  "filter": {
+                    "id": {
+                      "_eq": "X-Hasura-User-Id"
+                    }
+                  },
+                  "check": null
+                }
+              }
+            ]
+          }
+        ],
+        "configuration": {
+          "connection_info": {
+            "use_prepared_statements": false,
+            "database_url": {
+              "from_env": "HASURA_GRAPHQL_DATABASE_URL"
+            },
+            "isolation_level": "read-committed"
+          }
+        }
+      }
+    ],
+    "actions": [
+      {
+        "name": "loginUser",
+        "definition": {
+          "handler": "{{HASURA_ACTION_BASE_URL}}/auth/loginUser",
+          "output_type": "LoginUserOutput",
+          "arguments": [
+            {
+              "name": "email",
+              "type": "String!"
+            },
+            {
+              "name": "password",
+              "type": "String!"
+            }
+          ],
+          "type": "query"
+        },
+        "permissions": [
+          {
+            "role": "anonymous"
+          }
+        ]
+      },
+      {
+        "name": "signupUser",
+        "definition": {
+          "handler": "{{HASURA_ACTION_BASE_URL}}/auth/signupUser",
+          "output_type": "SignupUserOutput",
+          "arguments": [
+            {
+              "name": "email",
+              "type": "String!"
+            },
+            {
+              "name": "password",
+              "type": "String!"
+            },
+            {
+              "name": "first_name",
+              "type": "String!"
+            },
+            {
+              "name": "last_name",
+              "type": "String!"
+            },
+            {
+              "name": "gender",
+              "type": "String!"
+            },
+            {
+              "name": "date_of_birth",
+              "type": "String!"
+            },
+            {
+              "name": "social_insurrance_number",
+              "type": "String!"
+            },
+            {
+              "name": "telephone",
+              "type": "String!"
+            },
+            {
+              "name": "city",
+              "type": "String!"
+            },
+            {
+              "name": "postal_code",
+              "type": "String!"
+            },
+            {
+              "name": "province_or_territory",
+              "type": "String!"
+            },
+            {
+              "name": "country",
+              "type": "String!"
+            },
+            {
+              "name": "address",
+              "type": "String!"
+            }
+          ],
+          "type": "mutation",
+          "kind": "synchronous"
+        },
+        "permissions": [
+          {
+            "role": "anonymous"
+          }
+        ]
+      },
+      {
+        "name": "updateTaxSubmission",
+        "definition": {
+          "handler": "{{HASURA_ACTION_BASE_URL}}/tax/submit",
+          "output_type": "TaxSubmissionOutput",
+          "arguments": [
+            {
+              "name": "tax_records_id",
+              "type": "String!"
+            }
+          ],
+          "type": "mutation",
+          "kind": "synchronous"
+        },
+        "permissions": [
+          {
+            "role": "user"
+          }
+        ]
+      }
+    ],
+    "custom_types": {
+      "objects": [
+        {
+          "name": "LoginUserOutput",
+          "fields": [
+            {
+              "name": "access_token",
+              "type": "String"
+            },
+            {
+              "name": "id",
+              "type": "String"
+            },
+            {
+              "name": "email",
+              "type": "String"
+            },
+            {
+              "name": "first_name",
+              "type": "String"
+            },
+            {
+              "name": "last_name",
+              "type": "String"
+            }
+          ]
+        },
+        {
+          "name": "SignupUserOutput",
+          "fields": [
+            {
+              "name": "email",
+              "type": "String"
+            },
+            {
+              "name": "first_name",
+              "type": "String"
+            },
+            {
+              "name": "id",
+              "type": "String"
+            },
+            {
+              "name": "access_token",
+              "type": "String"
+            },
+            {
+              "name": "last_name",
+              "type": "String"
+            }
+          ]
+        },
+        {
+          "name": "TaxSubmissionOutput",
+          "fields": [
+            {
+              "name": "id",
+              "type": "String"
+            },
+            {
+              "name": "user_id",
+              "type": "String"
+            },
+            {
+              "name": "submitted",
+              "type": "Boolean"
+            },
+            {
+              "name": "year",
+              "type": "String"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

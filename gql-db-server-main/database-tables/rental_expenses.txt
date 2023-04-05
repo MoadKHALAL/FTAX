@@ -1,0 +1,75 @@
+id
+-
+uuid, primary key, unique, default: gen_random_uuid()
+date_began
+-
+timestamp with time zone, nullable
+date_end
+-
+timestamp with time zone, nullable
+ownership_percent
+-
+double precision, nullable
+personal_usage_percent
+-
+double precision, nullable
+gst_number
+-
+integer, nullable
+prepare_gst
+-
+boolean, nullable
+gross_rents
+-
+double precision, nullable
+advertising
+-
+double precision, nullable
+insurance
+-
+double precision, nullable
+interest
+-
+double precision, nullable
+maintenance_and_repairs
+-
+double precision, nullable
+management_and_admin_fees
+-
+double precision, nullable
+motor_vehicle_expenses
+-
+double precision, nullable
+office_expenses
+-
+double precision, nullable
+professional_fees
+-
+double precision, nullable
+property_taxes
+-
+double precision, nullable
+salary_wages_benefits_empoyer_contributions
+-
+double precision, nullable
+travel
+-
+double precision, nullable
+utilities
+-
+double precision, nullable
+other_expenses
+-
+double precision, nullable
+capital_purchases_improvements_or_disposals
+-
+double precision, nullable
+additional_info_or_comments
+-
+text, nullable
+property_address
+-
+text, nullable
+tax_records_id
+-
+uuid, unique

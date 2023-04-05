@@ -1,0 +1,36 @@
+id
+-
+uuid, primary key, unique, default: gen_random_uuid()
+date_began
+-
+timestamp with time zone
+date_end
+-
+timestamp with time zone
+heat
+-
+double precision
+electricity
+-
+double precision
+maintenance
+-
+double precision
+rent
+-
+double precision
+insurance
+-
+double precision
+property_taxes
+-
+double precision
+area_home_used_business
+-
+double precision
+total_area_of_home
+-
+double precision
+mortgage_interest
+-
+double precision, nullable

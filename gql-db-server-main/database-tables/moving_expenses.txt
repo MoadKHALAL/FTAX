@@ -1,0 +1,45 @@
+id
+-
+uuid, primary key, unique, default: gen_random_uuid()
+old_address
+-
+text
+new_address
+-
+text
+date_of_move
+-
+timestamp with time zone
+members_moved
+-
+integer
+meals_purchased
+-
+integer
+reason_is_job
+-
+boolean
+reason_is_studies
+-
+boolean
+activity_start_date
+-
+timestamp with time zone
+activity_name
+-
+text
+activity_address
+-
+text
+is_reimbursed
+-
+boolean
+reimbursed_details
+-
+text
+additional_info_or_comments
+-
+text
+tax_records_id
+-
+uuid

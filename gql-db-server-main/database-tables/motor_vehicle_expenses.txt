@@ -1,0 +1,51 @@
+id
+-
+uuid, primary key, unique, default: gen_random_uuid()
+date_began
+-
+timestamp with time zone
+date_end
+-
+timestamp with time zone
+fuel_and_oil
+-
+double precision
+maintenance_and_repairs
+-
+double precision
+insurance_and_liscensing
+-
+double precision
+interest_on_vehicle_loan
+-
+double precision
+lease_payments
+-
+double precision
+other_expenses
+-
+double precision
+is_owner
+-
+boolean
+is_first_year_owned_use
+-
+boolean
+fair_market_value
+-
+double precision
+opening_km
+-
+double precision
+closing_km
+-
+double precision
+km_driven_for_employment
+-
+double precision
+is_leased
+-
+boolean
+is_first_year_lease_use
+-
+boolean
